@@ -8,8 +8,8 @@ Alloy only changes the visual layer. It gives Material a quieter header, denser
 navigation, calmer typography, and matching styles for common documentation
 surfaces.
 
-[![PyPI version](https://img.shields.io/pypi/v/zensical-alloy.svg?logo=pypi&label=PyPI&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
-[![Python versions](https://img.shields.io/pypi/pyversions/zensical-alloy.svg?label=Python&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
+[![PyPI version](https://img.shields.io/pypi/v/zensical_alloy.svg?logo=pypi&label=PyPI&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
+[![Python versions](https://img.shields.io/pypi/pyversions/zensical_alloy.svg?label=Python&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
 [![MIT license](https://img.shields.io/badge/license-MIT-4c4c4c.svg)](https://github.com/lokeshguduru/zensical-alloy/blob/main/LICENSE)
 
 ![Alloy kitchen sink, light scheme](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/kitchen-sink-light.png)
