@@ -2,7 +2,7 @@
 site_name = "Zensical Alloy"
 site_description = "A polished documentation theme for Zensical"
 repo_name = "zensical-alloy"
-repo_url = "https://github.com/lokesh-guduru/zensical-alloy"
+repo_url = "https://github.com/lokeshguduru/zensical-alloy"
 edit_uri = "edit/main/examples/zensical-toml/docs/"
 
 nav = [

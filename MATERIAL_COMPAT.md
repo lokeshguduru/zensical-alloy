@@ -194,6 +194,6 @@ When bumping the `zensical` dependency:
 ## Reporting incompatibilities
 
 If you hit a Material feature that Alloy breaks unintentionally, open an
-issue at <https://github.com/lokesh-guduru/zensical-alloy/issues> with the
+issue at <https://github.com/lokeshguduru/zensical-alloy/issues> with the
 minimal reproducer and which upstream selector or feature is affected.
 The fixes are almost always small once the selector battle is identified.

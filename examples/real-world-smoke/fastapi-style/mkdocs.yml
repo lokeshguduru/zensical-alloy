@@ -1,6 +1,6 @@
 site_name: FastAPI-style Alloy Smoke
 site_description: Real-world shape fixture for tutorial and deployment docs
-repo_url: https://github.com/lokesh-guduru/zensical-alloy
+repo_url: https://github.com/lokeshguduru/zensical-alloy
 repo_name: zensical-alloy/fastapi-style
 
 theme:

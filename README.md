@@ -12,7 +12,7 @@ surfaces.
 [![Python versions](https://img.shields.io/pypi/pyversions/zensical-alloy.svg?label=Python&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
 [![MIT license](https://img.shields.io/badge/license-MIT-4c4c4c.svg)](LICENSE)
 
-![Alloy kitchen sink, light scheme](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/kitchen-sink-light.png)
+![Alloy kitchen sink, light scheme](.github/assets/kitchen-sink-light.png)
 
 ## Install
 
@@ -58,15 +58,15 @@ Alloy does not replace the Material runtime. The behavior stays upstream.
 
 | Light | Dark |
 | --- | --- |
-| ![Light scheme](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/kitchen-sink-light.png) | ![Dark scheme](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/kitchen-sink-dark.png) |
+| ![Light scheme](.github/assets/kitchen-sink-light.png) | ![Dark scheme](.github/assets/kitchen-sink-dark.png) |
 
 | Code | Callouts |
 | --- | --- |
-| ![Code blocks](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/code-light.png) | ![Callouts](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/callouts-light.png) |
+| ![Code blocks](.github/assets/code-light.png) | ![Callouts](.github/assets/callouts-light.png) |
 
 | Mobile home | Mobile drawer |
 | --- | --- |
-| ![Home, phone viewport](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/home-mobile.png) | ![Phone drawer open](https://raw.githubusercontent.com/lokesh-guduru/zensical-alloy/main/.github/assets/mobile-drawer.png) |
+| ![Home, phone viewport](.github/assets/home-mobile.png) | ![Phone drawer open](.github/assets/mobile-drawer.png) |
 
 ## Theme Knobs
 

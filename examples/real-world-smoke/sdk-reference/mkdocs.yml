@@ -1,6 +1,6 @@
 site_name: SDK Reference Alloy Smoke
 site_description: Real-world shape fixture for generated API references
-repo_url: https://github.com/lokesh-guduru/zensical-alloy
+repo_url: https://github.com/lokeshguduru/zensical-alloy
 repo_name: zensical-alloy/sdk-reference
 
 theme:

@@ -25,7 +25,7 @@ dev = ["zensical>=0.0.40", "build>=1.2"]
 visual = ["playwright>=1.45"]
 
 [project.urls]
-Homepage = "https://github.com/lokesh-guduru/zensical-alloy"
+Homepage = "https://github.com/lokeshguduru/zensical-alloy"
 
 # Registers the theme with Zensical (and MkDocs). Users opt in via
 #   [project.theme] name = "alloy"         # zensical.toml
