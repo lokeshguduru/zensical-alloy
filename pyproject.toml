@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zensical-alloy"
+version = "0.2.0"
+description = "A refined documentation theme for Zensical"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Lokesh Guduru" }]
+keywords = ["zensical", "mkdocs", "theme", "documentation", "alloy"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+]
+dependencies = ["zensical>=0.0.40"]
+
+[project.optional-dependencies]
+dev = ["zensical>=0.0.40", "build>=1.2"]
+visual = ["playwright>=1.45"]
+
+[project.urls]
+Homepage = "https://github.com/lokesh-guduru/zensical-alloy"
+
+# Registers the theme with Zensical (and MkDocs). Users opt in via
+#   [project.theme] name = "alloy"         # zensical.toml
+#   theme: { name: alloy }                 # mkdocs.yml
+[project.entry-points."mkdocs.themes"]
+alloy = "zensical_alloy"
+
+[tool.hatch.build.targets.wheel]
+packages = ["zensical_alloy"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/LICENSE",
+  "/README.md",
+  "/pyproject.toml",
+  "/scripts",
+  "/examples",
+  "/zensical_alloy",
+]
+exclude = [
+  "/.venv",
+  "/dist",
+  "/MEMORY.md",
+  "/examples/**/.cache",
+  "/examples/**/site",
+  "**/__pycache__",
+  "**/*.pyc",
+]

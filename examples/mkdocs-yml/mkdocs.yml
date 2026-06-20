@@ -1,0 +1,22 @@
+# Same theme, MkDocs-style YAML config through Zensical's compat layer.
+site_name: Zensical Alloy example (YAML)
+site_description: Example site using the Alloy theme via mkdocs.yml
+
+theme:
+  name: alloy
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: orange
+      toggle:
+        icon: lucide/sun
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: orange
+      toggle:
+        icon: lucide/moon
+        name: Switch to light mode

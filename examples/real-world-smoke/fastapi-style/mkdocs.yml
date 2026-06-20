@@ -1,0 +1,42 @@
+site_name: FastAPI-style Alloy Smoke
+site_description: Real-world shape fixture for tutorial and deployment docs
+repo_url: https://github.com/lokesh-guduru/zensical-alloy
+repo_name: zensical-alloy/fastapi-style
+
+theme:
+  name: alloy
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+    - scheme: slate
+      primary: black
+      accent: teal
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - search.highlight
+
+extra:
+  alloy:
+    accent_color: "oklch(0.62 0.16 172)"
+    accent_color_dark: "oklch(0.74 0.14 172)"
+
+nav:
+  - Tutorial:
+      - index.md
+      - First Steps: tutorial/first-steps.md
+      - Path Parameters: tutorial/path-parameters.md
+  - Deployment:
+      - deployment/index.md
+      - Containers: deployment/containers.md
+      - Workers: deployment/workers.md
+  - Reference:
+      - reference/index.md
+      - Settings: reference/settings.md
