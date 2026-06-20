@@ -1,0 +1,31 @@
+site_name: Alloy compact layout
+site_description: MkDocs compatibility fixture for narrow content and sidebars
+
+theme:
+  name: alloy
+  palette:
+    - scheme: default
+      primary: white
+      accent: orange
+    - scheme: slate
+      primary: black
+      accent: orange
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+
+extra:
+  alloy:
+    content_width: "40rem"
+    sidebar_width: "12rem"
+    toc_width: "10rem"
+    radius: "0.5rem"
+
+nav:
+  - Guide:
+      - index.md
+      - Dense Page: dense.md

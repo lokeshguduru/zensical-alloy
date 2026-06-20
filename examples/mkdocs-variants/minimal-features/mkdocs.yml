@@ -1,0 +1,15 @@
+site_name: Alloy minimal features
+site_description: MkDocs compatibility fixture with only the theme enabled
+
+theme:
+  name: alloy
+  palette:
+    - scheme: default
+      primary: white
+      accent: orange
+    - scheme: slate
+      primary: black
+      accent: orange
+
+nav:
+  - Overview: index.md

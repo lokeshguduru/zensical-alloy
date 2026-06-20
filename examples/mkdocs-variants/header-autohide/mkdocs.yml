@@ -1,0 +1,32 @@
+site_name: Alloy header autohide
+site_description: MkDocs compatibility fixture for the header.autohide feature
+
+theme:
+  name: alloy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: orange
+      toggle:
+        icon: lucide/sun
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: orange
+      toggle:
+        icon: lucide/moon
+        name: Switch to light mode
+  features:
+    - header.autohide
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Guide:
+      - guide/index.md
+      - Long page: guide/long-page.md

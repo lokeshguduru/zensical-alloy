@@ -1,0 +1,77 @@
+name: Visual regression
+
+on:
+  pull_request:
+    paths:
+      - "zensical_alloy/**"
+      - "examples/zensical-toml/**"
+      - "scripts/visual-regression.py"
+      - "scripts/bundle-css.py"
+      - ".github/workflows/visual-regression.yml"
+  workflow_dispatch:
+
+# Single in-flight run per branch; new pushes cancel the running job.
+concurrency:
+  group: visual-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install Alloy with visual extras
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -e .[visual]
+          .venv/bin/python -m playwright install --with-deps chromium
+
+      - name: Bundle CSS
+        run: .venv/bin/python scripts/bundle-css.py
+
+      - name: Build the canonical example site
+        working-directory: examples/zensical-toml
+        run: ../../.venv/bin/zensical build
+
+      - name: Serve the built site
+        working-directory: examples/zensical-toml/site
+        run: |
+          python -m http.server 8765 >/tmp/server.log 2>&1 &
+          # Wait for the server to accept connections (max ~10s).
+          for _ in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then
+              echo "Server is up."
+              break
+            fi
+            sleep 0.5
+          done
+
+      - name: Capture screenshots
+        env:
+          BASE_URL: http://127.0.0.1:8765
+          OUTPUT_DIR: tests/visual/screenshots
+        run: .venv/bin/python scripts/visual-regression.py
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-regression-${{ github.run_id }}
+          path: tests/visual/screenshots
+          retention-days: 14
+          if-no-files-found: warn
+
+      # Non-blocking: this workflow uploads screenshots for human review
+      # rather than gating merges. If you want it to gate, add a diff step
+      # against a baseline artifact and `exit 1` on regression.

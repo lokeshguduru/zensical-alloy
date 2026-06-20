@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{# Inject our stylesheet via the inherited theme's `extrahead` block.
+   The query-string version pin invalidates browser cache when bumped -
+   keep this in sync with pyproject.toml's project.version. #}
+{% block extrahead %}
+  {{ super() }}
+{% set alloy_config = config.extra.alloy | d({}, true) %}
+{# Curated accent presets. Pick one via [project.extra.alloy] accent_preset =
+   "slate" | "cyan" | "violet" | "orange". Explicit accent_color /
+   accent_color_dark always win if both are set. #}
+{% set alloy_preset = alloy_config.accent_preset | d("", true) %}
+{% set alloy_presets = {
+  "orange": ("oklch(0.62 0.18 46)", "oklch(0.74 0.16 56)"),
+  "slate":  ("oklch(0.55 0.04 240)", "oklch(0.74 0.03 240)"),
+  "cyan":   ("oklch(0.6 0.13 200)",  "oklch(0.78 0.11 200)"),
+  "violet": ("oklch(0.55 0.2 290)",  "oklch(0.74 0.15 295)"),
+} %}
+{% set preset_light = alloy_presets[alloy_preset][0] if alloy_preset in alloy_presets else "" %}
+{% set preset_dark  = alloy_presets[alloy_preset][1] if alloy_preset in alloy_presets else "" %}
+{% set alloy_accent = alloy_config.accent_color | d(preset_light | d(config.theme.accent_color | d(config.theme.accent | d("", true), true), true), true) %}
+{% set alloy_accent_dark = alloy_config.accent_color_dark | d(preset_dark | d(config.theme.accent_color_dark | d("", true), true), true) %}
+{% set alloy_radius = alloy_config.radius | d(config.theme.radius | d("", true), true) %}
+{% set alloy_font_sans = alloy_config.font_sans | d(config.theme.font_sans | d("", true), true) %}
+{% set alloy_font_mono = alloy_config.font_mono | d(config.theme.font_mono | d("", true), true) %}
+{% set alloy_content_width = alloy_config.content_width | d(config.theme.content_width | d("", true), true) %}
+{% set alloy_sidebar_width = alloy_config.sidebar_width | d(config.theme.sidebar_width | d("", true), true) %}
+{% set alloy_toc_width = alloy_config.toc_width | d(config.theme.toc_width | d("", true), true) %}
+{% set alloy_top_nav_accent = alloy_config.top_nav_accent | d(config.theme.top_nav_accent | d(false, true), true) %}
+<link rel="stylesheet" href="{{ 'assets/stylesheets/zensical-alloy/main.bundle.css' | url }}?v=0.2.0">
+{% if alloy_accent or alloy_accent_dark or alloy_radius or alloy_font_sans or alloy_font_mono or alloy_content_width or alloy_sidebar_width or alloy_toc_width or alloy_top_nav_accent %}
+<style id="zensical-alloy-config">
+:root {
+  {% if alloy_accent %}--brand-accent: {{ alloy_accent }}; --link: var(--brand-accent); --md-accent-fg-color: var(--brand-accent); --md-typeset-a-color: var(--link);{% endif %}
+  {% if alloy_radius %}--radius: {{ alloy_radius }};{% endif %}
+  {% if alloy_font_sans %}--font-sans: {{ alloy_font_sans }};{% endif %}
+  {% if alloy_font_mono %}--font-mono: {{ alloy_font_mono }};{% endif %}
+  {% if alloy_content_width %}--content-width: {{ alloy_content_width }};{% endif %}
+  {% if alloy_sidebar_width %}--sidebar-width: {{ alloy_sidebar_width }};{% endif %}
+  {% if alloy_toc_width %}--toc-width: {{ alloy_toc_width }};{% endif %}
+}
+{% if alloy_accent %}
+[data-md-color-scheme="default"],
+[data-md-color-scheme="default"][data-md-color-primary],
+[data-md-color-scheme="default"][data-md-color-accent] {
+  --brand-accent: {{ alloy_accent }};
+  --link: var(--brand-accent);
+  --md-accent-fg-color: var(--brand-accent);
+  --md-typeset-a-color: var(--link);
+}
+{% endif %}
+{% if alloy_accent_dark %}
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="slate"][data-md-color-primary],
+[data-md-color-scheme="slate"][data-md-color-accent] {
+  --brand-accent: {{ alloy_accent_dark }};
+  --link: var(--brand-accent);
+  --md-accent-fg-color: var(--brand-accent);
+  --md-typeset-a-color: var(--link);
+}
+{% endif %}
+{% if alloy_top_nav_accent %}
+[data-md-color-scheme="default"],
+[data-md-color-scheme="default"][data-md-color-primary],
+[data-md-color-scheme="default"][data-md-color-accent],
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="slate"][data-md-color-primary],
+[data-md-color-scheme="slate"][data-md-color-accent] {
+  --top-nav-hover-bg: color-mix(in srgb, var(--brand-accent) 8%, var(--background));
+  --top-nav-active-bg: color-mix(in srgb, var(--brand-accent) 12%, var(--background));
+  --top-nav-active-fg: var(--brand-accent);
+  --top-nav-active-border: color-mix(in srgb, var(--brand-accent) 30%, transparent);
+}
+{% endif %}
+</style>
+{% endif %}
+{# Per-page layout switches via Markdown frontmatter:
+     ---
+     alloy_layout: wide
+     ---
+   Adjusts content-width on the current page only. The token cascades into
+   every prose width constraint that reads var(--content-width). #}
+{% set alloy_layout = page.meta.alloy_layout if page and page.meta and page.meta.alloy_layout else "" %}
+{% if alloy_layout == "wide" %}
+<style id="zensical-alloy-page-layout">:root { --content-width: 60rem; }</style>
+{% endif %}
+<script defer src="{{ 'assets/javascripts/zensical-alloy/sidebar-scroll.js' | url }}?v=0.2.0"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/copy-markdown.js' | url }}?v=0.2.0"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/echarts.js' | url }}?v=0.2.0"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/search-overlay.js' | url }}?v=0.2.0"></script>
+{% endblock %}

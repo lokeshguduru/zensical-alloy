@@ -1,0 +1,57 @@
+[project]
+site_name = "Zensical Alloy"
+site_description = "A polished documentation theme for Zensical"
+repo_name = "zensical-alloy"
+repo_url = "https://github.com/lokeshguduru/zensical-alloy"
+edit_uri = "edit/main/examples/zensical-toml/docs/"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Docs" = [
+      { "Getting Started" = [
+          "getting-started/index.md",
+          { "Installation" = "getting-started/installation.md" },
+          { "Configuration" = "getting-started/configuration.md" },
+      ] },
+      { "Components" = [
+          "components/index.md",
+          { "Typography" = "components/typography.md" },
+          { "Code blocks" = "components/code.md" },
+          { "Callouts" = "components/callouts.md" },
+          { "Tables" = "components/tables.md" },
+          { "Charts" = "components/charts.md" },
+      ] },
+      { "Theming" = "theming.md" },
+      { "Migrating from Material" = "migrating.md" },
+  ] },
+  { "Kitchen Sink" = "components/kitchen-sink.md" },
+]
+
+[project.theme]
+name = "alloy"
+palette = [
+  { media = "(prefers-color-scheme: light)", scheme = "default", primary = "white", accent = "indigo", toggle = { icon = "lucide/sun", name = "Switch to dark mode" } },
+  { media = "(prefers-color-scheme: dark)",  scheme = "slate",   primary = "black", accent = "indigo", toggle = { icon = "lucide/moon", name = "Switch to light mode" } },
+]
+features = [
+  "content.action.edit",
+  "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "search.highlight",
+]
+
+# accent_color / accent_color_dark intentionally not set so the named
+# `palette.accent: indigo` above flows through to --brand-accent via
+# tokens.css. Set explicit values here only if you need exact hex.
+[project.extra.alloy]
+radius = "0.625rem"

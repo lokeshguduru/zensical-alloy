@@ -1,0 +1,35 @@
+site_name: Alloy deep nav
+site_description: MkDocs compatibility fixture for nested navigation
+
+theme:
+  name: alloy
+  palette:
+    - scheme: default
+      primary: white
+      accent: orange
+    - scheme: slate
+      primary: black
+      accent: orange
+  features:
+    - navigation.indexes
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - search.highlight
+
+nav:
+  - Product:
+      - index.md
+      - Guides:
+          - guides/index.md
+          - Guides Install:
+              - guides/install/index.md
+              - Local: guides/install/local.md
+              - Containers: guides/install/containers.md
+          - Guides Operate:
+              - guides/operate/index.md
+              - Monitoring: guides/operate/monitoring.md
+              - Incidents: guides/operate/incidents.md
+  - Reference:
+      - reference/index.md
+      - API: reference/api.md

@@ -1,0 +1,28 @@
+site_name: Alloy cyan accent
+site_description: MkDocs compatibility fixture for custom Alloy accent colors
+
+theme:
+  name: alloy
+  palette:
+    - scheme: default
+      primary: white
+      accent: cyan
+    - scheme: slate
+      primary: black
+      accent: cyan
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - search.highlight
+
+extra:
+  alloy:
+    accent_color: "oklch(0.62 0.16 218)"
+    accent_color_dark: "oklch(0.72 0.14 218)"
+    top_nav_accent: true
+
+nav:
+  - Overview: index.md

@@ -1,0 +1,35 @@
+site_name: Alloy amber accent
+site_description: MkDocs compatibility fixture demonstrating Alloy's per-scheme accent mapping for Material's named palette accents
+
+theme:
+  name: alloy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: amber
+      toggle:
+        icon: lucide/sun
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: lucide/moon
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - search.highlight
+
+# Intentionally no `extra.alloy.accent_color` / `accent_preset` here. The
+# theme should pick up the named `accent: amber` from the palette above and
+# resolve it to a yellow tone per scheme (dark mustard on light, bright
+# neon yellow on dark) automatically.
+
+nav:
+  - Overview: index.md

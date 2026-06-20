@@ -1,0 +1,78 @@
+{#-
+  Override of zensical/templates/partials/header.html.
+
+  Alloy header: thin sticky header, brand on the left, search pill in the
+  middle-right, palette toggle + repo source on the far right. Keeps the stock
+  search label trigger for mobile, where the runtime watches the __search
+  checkbox.
+-#}
+{% set class = "md-header md-header--alloy" %}
+{% if "navigation.tabs.sticky" in features %}
+  {% set class = class ~ " md-header--shadow md-header--lifted" %}
+{% elif "navigation.tabs" not in features %}
+  {% set class = class ~ " md-header--shadow" %}
+{% endif %}
+<header class="{{ class }}" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+
+    {# Mobile drawer toggle - only shown on small viewports via CSS. #}
+    <label class="md-header__button md-icon md-header__drawer-toggle" for="__drawer" aria-label="{{ lang.t('nav') }}">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+
+    {# Brand: logo + site name. #}
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+       title="{{ config.site_name | e }}"
+       class="md-header__brand"
+       aria-label="{{ config.site_name }}"
+       data-md-component="logo">
+      <span class="md-header__logo">
+        {% include "partials/logo.html" %}
+      </span>
+      <span class="md-header__sitename">{{ config.site_name }}</span>
+    </a>
+
+    {# Spacer - pushes everything to the right. #}
+    <div class="md-header__spacer" aria-hidden="true"></div>
+
+    {# Search pill (command-palette button). #}
+    {% if "search" in config.plugins %}
+      {% set search = config.plugins["search"] | attr("config") %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon md-header__search-toggle" for="__search" aria-label="{{ lang.t('search') }}">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+    {% endif %}
+
+    {# Palette toggle (light/dark). #}
+    {% if config.theme.palette %}
+      {% if not config.theme.palette is mapping %}
+        {% include "partials/palette.html" %}
+      {% endif %}
+    {% endif %}
+    {% if not config.theme.palette is mapping %}
+      {% include "partials/javascripts/palette.html" %}
+    {% endif %}
+
+    {# Alternate languages. #}
+    {% if config.extra.alternate %}
+      {% include "partials/alternate.html" %}
+    {% endif %}
+
+    {# Repo source. #}
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+  </nav>
+  {% if "navigation.tabs.sticky" in features %}
+    {% if "navigation.tabs" in features %}
+      {% include "partials/tabs.html" %}
+    {% endif %}
+  {% endif %}
+</header>
