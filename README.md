@@ -10,9 +10,9 @@ surfaces.
 
 [![PyPI version](https://img.shields.io/pypi/v/zensical-alloy.svg?logo=pypi&label=PyPI&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
 [![Python versions](https://img.shields.io/pypi/pyversions/zensical-alloy.svg?label=Python&color=4c4c4c)](https://pypi.org/project/zensical-alloy/)
-[![MIT license](https://img.shields.io/badge/license-MIT-4c4c4c.svg)](LICENSE)
+[![MIT license](https://img.shields.io/badge/license-MIT-4c4c4c.svg)](https://github.com/lokeshguduru/zensical-alloy/blob/main/LICENSE)
 
-![Alloy kitchen sink, light scheme](.github/assets/kitchen-sink-light.png)
+![Alloy kitchen sink, light scheme](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/kitchen-sink-light.png)
 
 ## Install
 
@@ -58,15 +58,15 @@ Alloy does not replace the Material runtime. The behavior stays upstream.
 
 | Light | Dark |
 | --- | --- |
-| ![Light scheme](.github/assets/kitchen-sink-light.png) | ![Dark scheme](.github/assets/kitchen-sink-dark.png) |
+| ![Light scheme](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/kitchen-sink-light.png) | ![Dark scheme](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/kitchen-sink-dark.png) |
 
 | Code | Callouts |
 | --- | --- |
-| ![Code blocks](.github/assets/code-light.png) | ![Callouts](.github/assets/callouts-light.png) |
+| ![Code blocks](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/code-light.png) | ![Callouts](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/callouts-light.png) |
 
 | Mobile home | Mobile drawer |
 | --- | --- |
-| ![Home, phone viewport](.github/assets/home-mobile.png) | ![Phone drawer open](.github/assets/mobile-drawer.png) |
+| ![Home, phone viewport](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/home-mobile.png) | ![Phone drawer open](https://raw.githubusercontent.com/lokeshguduru/zensical-alloy/main/.github/assets/mobile-drawer.png) |
 
 ## Theme Knobs
 
@@ -98,13 +98,13 @@ alloy_layout: wide
 ---
 ```
 
-See the [theming guide](examples/zensical-toml/docs/theming.md) for details.
+See the [theming guide](https://github.com/lokeshguduru/zensical-alloy/blob/main/examples/zensical-toml/docs/theming.md) for details.
 
 ## Compatibility
 
 Alloy is tested with `zensical >= 0.0.40` on Python 3.10 through Python 3.13.
 
-The compatibility notes in [MATERIAL_COMPAT.md](MATERIAL_COMPAT.md) list the
+The compatibility notes in [MATERIAL_COMPAT.md](https://github.com/lokeshguduru/zensical-alloy/blob/main/MATERIAL_COMPAT.md) list the
 upstream Material selectors and variables that Alloy relies on.
 
 ## Local Development
@@ -142,9 +142,9 @@ shape fixtures.
 Good changes are small and visible. Improve one component, add one focused
 fixture, tighten the docs, or make light and dark mode more consistent.
 
-Read the [contributing guide](examples/zensical-toml/docs/contributing.md) for
+Read the [contributing guide](https://github.com/lokeshguduru/zensical-alloy/blob/main/examples/zensical-toml/docs/contributing.md) for
 the workflow.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/lokeshguduru/zensical-alloy/blob/main/LICENSE)
