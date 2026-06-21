@@ -27,7 +27,7 @@
 {% set alloy_sidebar_width = alloy_config.sidebar_width | d(config.theme.sidebar_width | d("", true), true) %}
 {% set alloy_toc_width = alloy_config.toc_width | d(config.theme.toc_width | d("", true), true) %}
 {% set alloy_top_nav_accent = alloy_config.top_nav_accent | d(config.theme.top_nav_accent | d(false, true), true) %}
-<link rel="stylesheet" href="{{ 'assets/stylesheets/zensical-alloy/main.bundle.css' | url }}?v=0.2.2">
+<link rel="stylesheet" href="{{ 'assets/stylesheets/zensical-alloy/main.bundle.css' | url }}?v=0.2.3">
 {% if alloy_accent or alloy_accent_dark or alloy_radius or alloy_font_sans or alloy_font_mono or alloy_content_width or alloy_sidebar_width or alloy_toc_width or alloy_top_nav_accent %}
 <style id="zensical-alloy-config">
 :root {
@@ -84,8 +84,8 @@
 {% if alloy_layout == "wide" %}
 <style id="zensical-alloy-page-layout">:root { --content-width: 60rem; }</style>
 {% endif %}
-<script defer src="{{ 'assets/javascripts/zensical-alloy/sidebar-scroll.js' | url }}?v=0.2.2"></script>
-<script defer src="{{ 'assets/javascripts/zensical-alloy/copy-markdown.js' | url }}?v=0.2.2"></script>
-<script defer src="{{ 'assets/javascripts/zensical-alloy/echarts.js' | url }}?v=0.2.2"></script>
-<script defer src="{{ 'assets/javascripts/zensical-alloy/search-overlay.js' | url }}?v=0.2.2"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/sidebar-scroll.js' | url }}?v=0.2.3"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/copy-markdown.js' | url }}?v=0.2.3"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/echarts.js' | url }}?v=0.2.3"></script>
+<script defer src="{{ 'assets/javascripts/zensical-alloy/search-overlay.js' | url }}?v=0.2.3"></script>
 {% endblock %}
