@@ -406,7 +406,7 @@ code, kbd, pre, samp,
 
 /* Thin header. */
 .md-header {
-  height: var(--header-height);
+  height: auto;
 }
 .md-header__inner {
   padding-block: 0;
@@ -461,6 +461,10 @@ code, kbd, pre, samp,
     align-self: flex-start;
     position: sticky;
     top: calc(var(--header-height) + 1rem);
+  }
+  body:has(.md-tabs) .md-sidebar,
+  body:has(.md-tabs) .md-header--lifted ~ .md-container .md-sidebar {
+    top: calc(var(--header-height) + 2.75rem);
   }
 }
 .md-sidebar--secondary {
@@ -791,7 +795,7 @@ code, kbd, pre, samp,
   top: 0;
   z-index: 50;
   width: 100%;
-  height: var(--header-height);
+  height: auto;
   background: color-mix(in oklch, var(--background) 96%, transparent);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);

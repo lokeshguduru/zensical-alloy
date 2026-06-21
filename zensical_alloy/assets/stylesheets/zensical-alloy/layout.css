@@ -9,7 +9,7 @@
 
 /* Thin header. */
 .md-header {
-  height: var(--header-height);
+  height: auto;
 }
 .md-header__inner {
   padding-block: 0;
@@ -64,6 +64,10 @@
     align-self: flex-start;
     position: sticky;
     top: calc(var(--header-height) + 1rem);
+  }
+  body:has(.md-tabs) .md-sidebar,
+  body:has(.md-tabs) .md-header--lifted ~ .md-container .md-sidebar {
+    top: calc(var(--header-height) + 2.75rem);
   }
 }
 .md-sidebar--secondary {

@@ -11,7 +11,7 @@
   top: 0;
   z-index: 50;
   width: 100%;
-  height: var(--header-height);
+  height: auto;
   background: color-mix(in oklch, var(--background) 96%, transparent);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
